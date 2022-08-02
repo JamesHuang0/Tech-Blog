@@ -11,7 +11,7 @@ router.get("/", withAuth, (req, res) => {
       .then(dbPostData => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
         
-        res.render("allpostsadmin", {
+        res.render("all-posts-admin", {
           layout: "dashboard",
           posts
         });
@@ -23,7 +23,7 @@ router.get("/", withAuth, (req, res) => {
   });
 
   router.get("/new", withAuth, (req, res) => {
-    res.render("newpost", {
+    res.render("new-post", {
       layout: "dashboard"
     });
   });
@@ -34,7 +34,7 @@ router.get("/", withAuth, (req, res) => {
         if (dbPostData) {
           const post = dbPostData.get({ plain: true });
           
-          res.render("editpost", {
+          res.render("edit-post", {
             layout: "dashboard",
             post
           });
